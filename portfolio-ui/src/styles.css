@@ -23,6 +23,11 @@
   --white: #ffffff;
 }
 
+/* General */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Font Family */
 h1, h2, h3{
   font-family: 'unbounded';
@@ -99,6 +104,4 @@ p{
 }
 
 
-html {
-  scroll-behavior: smooth;
-}
+
