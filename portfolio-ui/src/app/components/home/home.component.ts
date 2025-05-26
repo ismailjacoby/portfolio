@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {HeroComponent} from '../hero/hero.component';
-import {ProjectsComponent} from '../projects/projects.component';
-import {SkillsComponent} from '../skills/skills.component';
-import {ContactComponent} from '../contact/contact.component';
+import {HeroComponent} from '../pages/hero/hero.component';
+import {ProjectsComponent} from '../pages/projects/projects.component';
+import {SkillsComponent} from '../pages/skills/skills.component';
+import {ContactComponent} from '../pages/contact/contact.component';
 
 @Component({
   selector: 'app-home',
