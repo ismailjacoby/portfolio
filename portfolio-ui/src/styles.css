@@ -38,12 +38,12 @@ h1, h2, h3{
   font-family: 'unbounded';
 }
 
-a, button{
+a{
   font-family: 'unbounded';
   font-weight: 300;
 }
 
-p{
+p, button, .btn{
   font-family: 'inter';
 }
 
