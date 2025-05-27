@@ -1,1 +1,33 @@
-<p>dashboard works!</p>
+<div class="p-6">
+  <!-- Top Navigation Tabs -->
+  <div class="flex justify-center mb-6">
+    <div class="bg-gray-100 rounded-lg inline-flex overflow-hidden">
+      <button class="px-6 py-2 text-xs hover:bg-neutral-200 hover:cursor-pointer focus:bg-neutral-300 transition">Projects</button>
+      <button class="px-6 py-2 text-xs hover:bg-neutral-200 hover:cursor-pointer focus:bg-neutral-300 transition">Experience</button>
+      <button class="px-6 py-2 text-xs hover:bg-neutral-200 hover:cursor-pointer focus:bg-neutral-300 transition">Skills</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Left: Manage Text -->
+    <div class="md:col-span-2">
+      <h2 class="text-md font-semibold mb-4">Manage Projects</h2>
+    </div>
+
+    <!-- Right: Add Button -->
+    <div class="flex md:justify-end items-start">
+      <button class="btn btn-primary">
+        Add New Project
+      </button>
+    </div>
+  </div>
+
+  <!-- Section Divider -->
+  <div class="border-t my-6 text-neutral-300"></div>
+
+  <!-- Projects/Experience/Skills List -->
+  <div class="bg-white rounded-lg p-6 shadow-sm text-center text-neutral-500">
+    No projects yet
+  </div>
+</div>
