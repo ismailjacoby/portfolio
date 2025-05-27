@@ -20,6 +20,13 @@ public class GlobalExceptionHandler {
         return new ErrorResponseDTO("Authentication failed", e.getMessage(), HttpStatus.UNAUTHORIZED);
     }
 
+    // DuplicateException
+    @ExceptionHandler(DuplicateException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponseDTO handleDuplicateException(DuplicateException e) {
+        return new ErrorResponseDTO("Duplicate Found", e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
     // IllegalArgumentException
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
