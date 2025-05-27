@@ -22,15 +22,15 @@ public class SkillController {
     }
 
     // Create
-    @PostMapping("/add")
-    public ResponseEntity<String> addSkill(@RequestBody @Valid SkillForm form) {
+    @PostMapping("/create")
+    public ResponseEntity<String> createSkill(@RequestBody @Valid SkillForm form) {
         skillService.addSkill(form);
         return ResponseEntity.ok("Skill added successfully!");
     }
 
     // Read One
     @GetMapping("/{id}")
-    public ResponseEntity<SkillDTO> getSkill(@PathVariable Long id) {
+    public ResponseEntity<SkillDTO> getSkillById(@PathVariable Long id) {
         Skill skill = skillService.findSkillById(id);
         return ResponseEntity.ok(SkillDTO.fromEntity(skill));
     }
@@ -47,7 +47,7 @@ public class SkillController {
     // Update
     @PutMapping("/update/{id}")
     public ResponseEntity<String> updateSkill(@PathVariable Long id, @RequestBody @Valid SkillForm form) {
-        skillService.updateSkill(form, id);
+        skillService.updateSkill(id, form);
         return ResponseEntity.ok("Skill updated successfully");
     }
 

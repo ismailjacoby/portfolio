@@ -1,9 +1,6 @@
 package com.ismailjacoby.portfolioapi.models.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,12 +10,23 @@ import java.util.List;
 @Getter
 @Setter
 public class Project extends BaseEntity{
+    @Column(nullable = false, length = 100)
     private String title;
+
+    @Column(columnDefinition = "TEXT")
     private String description;
+
+    @Column(name = "image_url", length = 255)
     private String imageUrl;
+
+    @Column(name = "demo_url", length = 255)
     private String demoUrl;
+
+    @Column(name = "code_url", length = 255)
     private String codeUrl;
-    private boolean featured;
+
+    @Column(nullable = false)
+    private boolean isPublic;
 
     @ManyToMany
     @JoinTable(

@@ -44,7 +44,7 @@ public class SkillServiceImpl implements SkillService {
     }
 
     @Override
-    public void updateSkill(SkillForm form, Long id) {
+    public void updateSkill(Long id, SkillForm form) {
         Skill skill = skillRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Skill with id '" + id + "' not found"));
 

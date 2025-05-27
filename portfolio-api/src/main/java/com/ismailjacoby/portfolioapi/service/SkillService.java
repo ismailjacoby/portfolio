@@ -9,6 +9,6 @@ public interface SkillService {
     void addSkill(SkillForm form);
     Skill findSkillById(Long id);
     List<Skill> findAllSkills();
-    void updateSkill(SkillForm form, Long id);
+    void updateSkill(Long id, SkillForm form);
     void deleteSkill(Long id);
 }
