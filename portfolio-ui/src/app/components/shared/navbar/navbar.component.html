@@ -7,7 +7,7 @@
   <!-- Navigation Links -->
   <div>
     <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
-      <li><a href="#hero" class="hover:text-blue-600 transition">Home</a></li>
+      <li><a routerLink="/" class="hover:text-blue-600 transition">Home</a></li>
       <li><a href="#projects" class="hover:text-blue-600 transition">Projects</a></li>
       <li><a href="" class="hover:text-blue-600 transition">About</a></li>
       <li><a href="" class="hover:text-blue-600 transition">Experience</a></li>
@@ -18,7 +18,15 @@
 
   <!-- Admin -->
   <div>
-    <button class="btn btn-primary" routerLink="login">Admin</button>
+    @if(!isLoggedIn){
+      <button class="btn btn-primary" routerLink="login">Admin</button>
+    } @else{
+      <div class="space-x-2">
+        <button class="btn btn-secondary" routerLink="dashboard">Dashboard</button>
+        <button class="btn btn-red" routerLink="login" (click)="logout()">Logout</button>
+      </div>
+
+    }
   </div>
 </nav>
 

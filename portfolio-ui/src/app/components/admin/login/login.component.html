@@ -1,26 +1,67 @@
 <div class="bg-white  mt-24 max-w-sm md:max-w-lg mx-auto">
   <div class="text-center">
+    <!-- Title -->
     <h2 class="text-4xl font-unbounded font-bold text-black mb-4">Login</h2>
 
-    <form class="space-y-4 flex flex-col">
-      <input
-        type="text"
-        placeholder="Username:"
-        class="input-field"
-      />
-      <input
-        type="text"
-        placeholder="Password:"
-        class="input-field"
-      />
+    <!-- Login Form -->
+    <form class="space-y-4 flex flex-col" [formGroup]="loginForm" (ngSubmit)="login()">
+      <!-- Username -->
+      <div>
+        <input
+          type="text"
+          placeholder="Username:"
+          class="input-field"
+          formControlName="username"
+        />
 
+        @if(loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['required']){
+          <p class="text-xs text-red-600 mt-2 text-left">Username is required.</p>
+        }
+
+        @if(loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['minlength']){
+          <p class="text-xs text-red-600 mt-2 text-left">Username must be atleast 3 characters long.</p>
+        }
+
+        @if(loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['maxlength']){
+          <p class="text-xs text-red-600 mt-2 text-left">Username must be under 20 characters long.</p>
+        }
+      </div>
+
+
+      <!-- Password -->
+      <div>
+        <input
+          type="password"
+          placeholder="Password:"
+          class="input-field"
+          formControlName="password"
+        />
+
+        @if(loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']){
+          <p class="text-xs text-red-600 mt-2 text-left">Password is required.</p>
+        }
+
+        @if(loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength']){
+          <p class="text-xs text-red-600 mt-2 text-left">Password must be atleast 8 characters long.</p>
+        }
+      </div>
+
+      <!-- Button -->
       <button
         type="submit"
         class="btn btn-primary w-full sm:w-auto"
-        disabled
+        [disabled]="loginForm.invalid"
       >
         Login
       </button>
+
+      @if(errorMessage){
+       <p class="text-xs text-red-600">{{ errorMessage }}</p>
+      }
+      @if(successMessage){
+      <p class="text-xs text-green-600">{{ successMessage }}</p>
+      }
+
     </form>
   </div>
 </div>

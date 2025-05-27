@@ -19,7 +19,7 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping("Login")
+    @PostMapping("login")
     public ResponseEntity<AuthDTO> login(@RequestBody @Valid LoginForm form) {
         AuthDTO authDTO = authService.login(form);
         return ResponseEntity.ok(authDTO);
