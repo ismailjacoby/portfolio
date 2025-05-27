@@ -10,6 +10,17 @@ It is a responsive website showcasing my work, skills, and contact information.
 - **Backend:** Spring
 - **Database:** PostgreSQL
 
+
+## 🛠️ Functionality
+- 🔐 **Admin Login**  
+  - Secure login page to access admin dashboard
+  - Role-based access control
+- 🔧 **CRUD Operations**  
+  - Create, Read, Update, and Delete entries for:
+    - Portfolio projects
+    - Skills
+    - Experience
+
 ## 🌟 Features
 
 - 📌 **Hero Section** – Clean intro with my name, role, description, and CTA buttons.
@@ -18,14 +29,3 @@ It is a responsive website showcasing my work, skills, and contact information.
 - 📬 **Contact Section** – Functional contact form (placeholder) with social links.
 - 📱 **Responsive Design** – Mobile-first layout using Tailwind’s utility classes.
 - 🎯 **Smooth Scroll Navigation** – Anchored navbar with clean transitions.
-
-
-## 🔐 Admin Functionality
-- 🔐 **Admin Login**  
-  - Secure login page to access admin dashboard
-  - Role-based access control
-- 🔧 **CRUD Operations**  
-  - Add, edit, and delete entries for:
-    - Portfolio projects
-    - Skills
-    - Experience
