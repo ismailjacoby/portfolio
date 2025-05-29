@@ -9,8 +9,10 @@
     <ul class="hidden md:flex space-x-8 text-gray-700 text-sm">
       <li><a routerLink="/" class="hover:text-blue-600 transition">Home</a></li>
       <li><a href="#projects" class="hover:text-blue-600 transition">Projects</a></li>
-      <li><a href="" class="hover:text-blue-600 transition">About</a></li>
-      <li><a href="" class="hover:text-blue-600 transition">Experience</a></li>
+      <!--
+        <li><a href="" class="hover:text-blue-600 transition">About</a></li>
+        <li><a href="" class="hover:text-blue-600 transition">Experience</a></li>
+      -->
       <li><a href="#skills" class="hover:text-blue-600 transition">Skills</a></li>
       <li><a href="#contact" class="hover:text-blue-600 transition">Contact</a></li>
     </ul>
@@ -23,10 +25,18 @@
     } @else{
       <div class="space-x-2">
         <button class="btn btn-secondary" routerLink="dashboard">Dashboard</button>
-        <button class="btn btn-red" routerLink="login" (click)="logout()">Logout</button>
+        <button class="btn btn-red" (click)="openLogoutModal()">Logout</button>
       </div>
 
     }
   </div>
 </nav>
 
+
+<!-- Logout Modal -->
+@if (showLogoutModal) {
+  <app-logout-modal
+    (cancel)="closeLogoutModal()"
+    (confirmLogout)="logout()"
+  ></app-logout-modal>
+}

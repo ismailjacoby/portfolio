@@ -1,0 +1,26 @@
+<div class="fixed inset-0 bg-black/25 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+    <h2 class="text-lg font-bold mb-4">Add New Skill</h2>
+
+    <!-- Skill Form (you can hook ReactiveForm later) -->
+    <form>
+      <label class="block mb-2 text-sm font-medium text-gray-700">Skill Name</label>
+      <input type="text" placeholder="e.g. Angular" class="input-field w-full mb-4">
+
+      <label class="block mb-2 text-sm font-medium text-gray-700">Category</label>
+      <select class="input-field w-full mb-4">
+        <option value="" class="opacity-40">-- Select category --</option>
+        <option>Frontend</option>
+        <option>Backend</option>
+        <option>Database</option>
+        <option>Tools</option>
+        <option>Design</option>
+      </select>
+
+      <div class="flex justify-end space-x-2 mt-6">
+        <button type="button" class="btn btn-secondary" (click)="close()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add Skill</button>
+      </div>
+    </form>
+  </div>
+</div>

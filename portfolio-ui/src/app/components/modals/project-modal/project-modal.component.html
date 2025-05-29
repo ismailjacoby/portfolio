@@ -1,0 +1,57 @@
+<div class="fixed inset-0 bg-black/25 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+    <h2 class="text-lg font-bold mb-4">Add New Project</h2>
+
+    <form [formGroup]="projectForm" (ngSubmit)="submit()">
+      <!-- Title -->
+      <label class="block mb-1 text-sm font-medium">Title</label>
+      <input type="text" formControlName="title" class="input-field w-full mb-2">
+      <div class="text-red-500 text-xs mb-2" *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched">
+        Title is required (2–100 characters)
+      </div>
+
+      <!-- Description -->
+      <label class="block mb-1 text-sm font-medium">Description</label>
+      <textarea formControlName="description" class="input-field w-full mb-2"></textarea>
+
+      <!-- Image URL -->
+      <label class="block mb-1 text-sm font-medium">Image URL</label>
+      <input type="text" formControlName="imageUrl" class="input-field w-full mb-2">
+
+      <!-- Demo URL -->
+      <label class="block mb-1 text-sm font-medium">Demo URL</label>
+      <input type="text" formControlName="demoUrl" class="input-field w-full mb-2">
+
+      <!-- Code URL -->
+      <label class="block mb-1 text-sm font-medium">Code URL</label>
+      <input type="text" formControlName="codeUrl" class="input-field w-full mb-2">
+
+      <!-- Is Public -->
+      <label class="inline-flex items-center mb-4">
+        <input type="checkbox" formControlName="isPublic" class="mr-2"> Public Project
+      </label>
+
+      <!-- Technologies -->
+      <label class="block mb-1 text-sm font-medium">Technologies</label>
+      <div class="mb-4">
+        <div *ngFor="let tech of availableSkills">
+          <label class="inline-flex items-center">
+            <input
+              type="checkbox"
+              [value]="tech.id"
+              (change)="onTechCheckboxChange($event, tech.id)"
+              class="mr-2"
+            />
+            {{ tech.name }}
+          </label>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex justify-end space-x-2 mt-6">
+        <button type="button" class="btn btn-secondary" (click)="close()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add Project</button>
+      </div>
+    </form>
+  </div>
+</div>

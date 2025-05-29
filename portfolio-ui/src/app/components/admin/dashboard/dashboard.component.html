@@ -33,7 +33,7 @@
 
     <!-- Right: Add Button -->
     <div class="flex md:justify-end items-start">
-      <button class="btn btn-primary">
+      <button class="btn btn-primary" (click)="openModal()">
         Add New {{ selectedTab | titlecase }}
       </button>
     </div>
@@ -57,3 +57,19 @@
     }
   </div>
 </div>
+
+
+<!-- Skill Modal -->
+@if (showSkillModal) {
+  <app-skill-modal (closeModal)="closeModals()"></app-skill-modal>
+}
+
+<!-- Project Modal -->
+@if (showProjectModal) {
+  <app-project-modal (closeModal)="closeModals()"></app-project-modal>
+}
+
+<!-- Experience Modal -->
+@if (showExperienceModal) {
+  <app-experience-modal (closeModal)="closeModals()"></app-experience-modal>
+}
