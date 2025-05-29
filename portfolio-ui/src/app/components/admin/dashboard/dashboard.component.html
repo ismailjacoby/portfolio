@@ -2,9 +2,25 @@
   <!-- Top Navigation Tabs -->
   <div class="flex justify-center mb-6">
     <div class="bg-gray-100 rounded-lg inline-flex overflow-hidden">
-      <button class="px-6 py-2 text-xs hover:bg-neutral-200 hover:cursor-pointer focus:bg-neutral-300 transition">Projects</button>
-      <button class="px-6 py-2 text-xs hover:bg-neutral-200 hover:cursor-pointer focus:bg-neutral-300 transition">Experience</button>
-      <button class="px-6 py-2 text-xs hover:bg-neutral-200 hover:cursor-pointer focus:bg-neutral-300 transition">Skills</button>
+      <!-- Project Tab -->
+      <button
+        class="px-6 py-2 text-xs transition hover:cursor-pointer"
+        [ngClass]="{ 'bg-neutral-300': selectedTab === 'project', 'hover:bg-neutral-200': selectedTab !== 'project' }"
+        (click)="selectedTab = 'project'">Projects
+      </button>
+
+      <!-- Skill Tab -->
+      <button
+        class="px-6 py-2 text-xs transition  hover:cursor-pointer"
+        [ngClass]="{ 'bg-neutral-300': selectedTab === 'skill', 'hover:bg-neutral-200': selectedTab !== 'skill' }"
+        (click)="selectedTab = 'skill'">Skills
+      </button>
+
+      <!-- Experience Tab -->
+      <button
+        class="px-6 py-2 text-xs transition  hover:cursor-pointer"
+        [ngClass]="{ 'bg-neutral-300': selectedTab === 'experience', 'hover:bg-neutral-200': selectedTab !== 'experience' }"
+        (click)="selectedTab = 'experience'">Experiences</button>
     </div>
   </div>
 
@@ -12,13 +28,13 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     <!-- Left: Manage Text -->
     <div class="md:col-span-2">
-      <h2 class="text-md font-semibold mb-4">Manage Projects</h2>
+      <h2 class="text-md font-semibold mb-4">Manage {{ selectedTab | titlecase }}s</h2>
     </div>
 
     <!-- Right: Add Button -->
     <div class="flex md:justify-end items-start">
       <button class="btn btn-primary">
-        Add New Project
+        Add New {{ selectedTab | titlecase }}
       </button>
     </div>
   </div>
@@ -28,6 +44,16 @@
 
   <!-- Projects/Experience/Skills List -->
   <div class="bg-white rounded-lg p-6 shadow-sm text-center text-neutral-500">
-    No projects yet
+    @switch (selectedTab) {
+      @case ('project') {
+        No projects yet
+      }
+      @case ('experience') {
+        No experiences added yet
+      }
+      @case ('skill') {
+        No skills added yet
+      }
+    }
   </div>
 </div>
