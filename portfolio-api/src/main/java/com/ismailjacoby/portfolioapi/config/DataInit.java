@@ -81,7 +81,7 @@ public class DataInit  implements InitializingBean {
                 // Design
                 new Skill("Figma", SkillCategory.DESIGN),
                 new Skill("Blender", SkillCategory.DESIGN),
-                new Skill("Adobe Photoshop", SkillCategory.DESIGN),
+                new Skill("Photoshop", SkillCategory.DESIGN),
                 new Skill("Illustrator", SkillCategory.DESIGN),
                 new Skill("Lightroom", SkillCategory.DESIGN)
 
