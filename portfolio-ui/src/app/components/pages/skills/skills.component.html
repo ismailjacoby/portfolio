@@ -6,58 +6,16 @@
     </p>
   </div>
 
-  <div class="grid gap-12 md:grid-cols-3 lg:grid-cols-5 text-center max-w-7xl mx-auto">
-    <!-- Frontend -->
-    <div>
-      <h3 class="text-xl font-semibold mb-4 font-unbounded">Frontend</h3>
-      <div class="flex flex-col gap-2 justify-center">
-        <span class="badge">HTML</span>
-        <span class="badge">CSS</span>
-        <span class="badge">JavaScript</span>
-        <span class="badge">TailwindCSS</span>
-        <span class="badge">Bootstrap</span>
-        <span class="badge">Angular</span>
+  <div class="grid gap-12 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 text-center max-w-7xl mx-auto">
+    @for (category of categories; track category){
+      <div>
+        <h3 class="text-xl font-semibold mb-4">{{category | titlecase}}</h3>
+        <div class="flex flex-col gap-2 justify-center">
+          @for (skill of skillsByCategory[category] ?? []; track skill.name){
+            <span class="badge">{{ skill.name }}</span>
+          }
+        </div>
       </div>
-    </div>
-
-    <!-- Backend -->
-    <div>
-      <h3 class="text-xl font-semibold mb-4 font-unbounded ">Backend</h3>
-      <div class="flex flex-col gap-2 justify-center">
-        <span class="badge">Java</span>
-        <span class="badge">Spring</span>
-        <span class="badge">Hibernate</span>
-        <span class="badge">Jakarta EE</span>
-        <span class="badge">JDBC</span>
-      </div>
-    </div>
-
-    <!-- Database -->
-    <div>
-      <h3 class="text-xl font-semibold mb-4 font-unbounded">Database</h3>
-      <div class="flex flex-col gap-2 justify-center">
-        <span class="badge">SQL</span>
-        <span class="badge">PostgreSQL</span>
-      </div>
-    </div>
-
-    <!-- Tools -->
-    <div>
-      <h3 class="text-xl font-semibold mb-4 font-unbounded">Tools</h3>
-      <div class="flex flex-col gap-2 justify-center">
-        <span class="badge">Docker</span>
-        <span class="badge">Kubernetes</span>
-      </div>
-    </div>
-
-    <!-- Design -->
-    <div>
-      <h3 class="text-xl font-semibold mb-4 font-unbounded ">Design</h3>
-      <div class="flex flex-col gap-2 justify-center">
-        <span class="badge">Figma</span>
-        <span class="badge">Photoshop</span>
-        <span class="badge">Blender</span>
-      </div>
-    </div>
+    }
   </div>
 </section>
