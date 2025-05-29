@@ -1,9 +1,11 @@
 package com.ismailjacoby.portfolioapi.config;
 
+import com.ismailjacoby.portfolioapi.models.entity.Project;
 import com.ismailjacoby.portfolioapi.models.entity.Skill;
 import com.ismailjacoby.portfolioapi.models.entity.User;
 import com.ismailjacoby.portfolioapi.models.enums.SkillCategory;
 import com.ismailjacoby.portfolioapi.models.enums.UserRole;
+import com.ismailjacoby.portfolioapi.repository.ProjectRepository;
 import com.ismailjacoby.portfolioapi.repository.SkillRepository;
 import com.ismailjacoby.portfolioapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,12 +20,14 @@ public class DataInit  implements InitializingBean {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final SkillRepository skillRepository;
+    private final ProjectRepository projectRepository;
 
 
-    public DataInit(UserRepository userRepository, PasswordEncoder passwordEncoder, SkillRepository skillRepository) {
+    public DataInit(UserRepository userRepository, PasswordEncoder passwordEncoder, SkillRepository skillRepository, ProjectRepository projectRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.skillRepository = skillRepository;
+        this.projectRepository = projectRepository;
     }
 
     @Value("${ADMIN_USERNAME}")
@@ -79,15 +83,33 @@ public class DataInit  implements InitializingBean {
                 new Skill("Blender", SkillCategory.DESIGN),
                 new Skill("Adobe Photoshop", SkillCategory.DESIGN),
                 new Skill("Illustrator", SkillCategory.DESIGN),
-                new Skill("Premiere", SkillCategory.DESIGN),
-                new Skill("Lightroom", SkillCategory.DESIGN),
-                new Skill("After Effects", SkillCategory.DESIGN)
+                new Skill("Lightroom", SkillCategory.DESIGN)
+
         );
 
         for (Skill skill : skills) {
             if (!skillRepository.existsByNameIgnoreCase(skill.getName())) {
                 skillRepository.save(skill);
             }
+        }
+
+        // Projects
+        if (projectRepository.count() == 0) {
+            List<String> techNames = List.of("Angular", "Spring", "PostgreSQL", "Docker");
+            List<Skill> techStack = skillRepository.findByNameIn(techNames);
+
+            Project project = new Project();
+            project.setTitle("Hybridvision");
+            project.setDescription("A Music Studio website built with Angular, Spring Boot, Stripe, AWS S3, and Docker. " +
+                    "This platform allows users to explore the studio's services, purchase music productions, and sample packs, " +
+                    "while providing an admin panel to manage users and content.");
+            project.setImageUrl("https://res.cloudinary.com/dozrra9cw/image/upload/v1748525827/Hybridvision_g20kan.gif");
+            project.setDemoUrl("");
+            project.setCodeUrl("https://github.com/ismailjacoby/Hybridvision-Music-Studio-Website");
+            project.setPublic(true);
+            project.setTechnologies(techStack);
+
+            projectRepository.save(project);
         }
     }
 }
