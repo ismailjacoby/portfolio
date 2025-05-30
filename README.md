@@ -21,11 +21,10 @@ It is a responsive website showcasing my work, skills, and contact information.
     - Skills
     - Experience
 
-## 🌟 Features
+## 🌟 Homepage
 
 - 📌 **Hero Section** – Clean intro with my name, role, description, and CTA buttons.
 - 💼 **Featured Projects** – Project cards with image, title, description, and links (Live Demo & Code).
-- 🛠️ **Skills Section** – Categorized technologies with responsive badges (Frontend, Backend, Database, Tools, Design).
-- 📬 **Contact Section** – Functional contact form (placeholder) with social links.
+- 🛠️ **Skills Section** – Categorized technologies (Frontend, Backend, Database, Tools, Design).
+- 📬 **Contact Section** – Contact form with social links.
 - 📱 **Responsive Design** – Mobile-first layout using Tailwind’s utility classes.
-- 🎯 **Smooth Scroll Navigation** – Anchored navbar with clean transitions.
