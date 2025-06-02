@@ -15,6 +15,17 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
       database: postgresqlmail
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+    username: ${SMTP_USERNAME}
+    password: ${SMTP_PASSWORD}
+
 server:
   port: 8080
   error:
